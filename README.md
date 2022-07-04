@@ -41,5 +41,5 @@
 1. GitHub 提交
    - fork 仓库： [TCL606/MultiThreading: 2022 THU EESAST 软件部暑期培训 (github.com)](https://github.com/TCL606/MultiThreading) 到个人仓库，按要求修改好后，从个人仓库提pr到原本的仓库。
 2. 邮箱提交
-   - 只允许修改`MultiThreading/hw1/hw1/Program.cs`代码，修改好后，将`MultiThreading`整个仓库打包成常见压缩格式（如`.rar`、`.zip`等），发送到邮箱 **tcl606_thu@163.com**
+   - 只允许修改`MultiThreading/hw1/hw1/Program.cs`代码，修改好后，将`MultiThreading`整个文件夹打包成常见压缩格式（如`.rar`、`.zip`等），并命名为：`多线程_姓名_班级` （如：`多线程_小明_无19`）发送到邮箱 **tcl606_thu@163.com**。
 
