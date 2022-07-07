@@ -32,20 +32,21 @@ namespace Homework1
         // 修改范围内的代码，允许添加字段或者属性或者方法，使程序满足要求
         
         // 提示：使用定义好的 P函数 与 V函数
-
+        Semaphore sem = new Semaphore(0, 1);
         public void Produce()
         {
             // 可以加东西
             
             Producer.ProduceACake(cake); // 这句话不允许改，但可以在前后加代码
             
+            P(sem);            
             // 可以加东西
         }
 
         public void Consume()
         {
             // 可以加东西
-            
+            V(sem);
             Consumer.ConsumeACake(cake); // 这句话不允许改，但可以在前后加代码
 
             // 可以加东西
