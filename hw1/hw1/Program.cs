@@ -33,26 +33,27 @@ namespace Homework1
         
         // 提示：使用定义好的 P函数 与 V函数
 
+
+        //添加信号量，当前为0，不能在一开始锁（consume）
+        //临界区资源就是cake
+        //相当于sema与Cake数量挂钩,同时在Comsume前面检测是否有cake.
+
+        public Semaphore sema = new Semaphore(0, int.MaxValue); //可能会一直生产蛋糕
+
         public void Produce()
         {
-            // 可以加东西
-            
-            Producer.ProduceACake(cake); // 这句话不允许改，但可以在前后加代码
-            
-            // 可以加东西
+            //临界区
+            Producer.ProduceACake(cake); 
+            V(sema);
         }
 
         public void Consume()
         {
-            // 可以加东西
-            
-            Consumer.ConsumeACake(cake); // 这句话不允许改，但可以在前后加代码
-
-            // 可以加东西
+            //临界区
+            P(sema);
+            Consumer.ConsumeACake(cake);
         }
         
-        // 可以加东西
-
 // ==================================================================================================================  
     }
 
