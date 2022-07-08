@@ -22,7 +22,7 @@ namespace Homework1
         public void P(Semaphore sema) => sema.WaitOne();
         public void V(Semaphore sema) => sema.Release();
 
-// ================================================================================================================       
+        // ================================================================================================================       
 
         // 题目：现在有一个消费者，一个生产者。消费者生产一个蛋糕，消费者消费一个蛋糕。
         //       初始时没有蛋糕。两个线程开始的时间不确定。
@@ -30,8 +30,10 @@ namespace Homework1
         // 要求：保证消费者消费蛋糕时，生产者已经把蛋糕生产好了
 
         // 修改范围内的代码，允许添加字段或者属性或者方法，使程序满足要求
-        
+
         // 提示：使用定义好的 P函数 与 V函数
+
+        public Semaphore sem = new(0, 1);
 
         public void Produce()
         {
@@ -40,12 +42,13 @@ namespace Homework1
             Producer.ProduceACake(cake); // 这句话不允许改，但可以在前后加代码
             
             // 可以加东西
+            V(sem);
         }
 
         public void Consume()
         {
             // 可以加东西
-            
+            P(sem);
             Consumer.ConsumeACake(cake); // 这句话不允许改，但可以在前后加代码
 
             // 可以加东西
