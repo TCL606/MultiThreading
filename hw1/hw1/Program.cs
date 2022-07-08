@@ -38,19 +38,19 @@ namespace Homework1
             // 可以加东西
             
             Producer.ProduceACake(cake); // 这句话不允许改，但可以在前后加代码
-            
+            V(sema);
             // 可以加东西
         }
 
         public void Consume()
         {
             // 可以加东西
-            
+            P(sema);
             Consumer.ConsumeACake(cake); // 这句话不允许改，但可以在前后加代码
 
             // 可以加东西
         }
-        
+        public Semaphore sema = new Semaphore(0, 2);
         // 可以加东西
 
 // ==================================================================================================================  
