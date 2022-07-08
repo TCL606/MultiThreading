@@ -38,7 +38,6 @@ namespace Homework1
         public void Produce()
         {
             // 可以加东西
-            P(sem);
             
             Producer.ProduceACake(cake); // 这句话不允许改，但可以在前后加代码
             
@@ -50,16 +49,9 @@ namespace Homework1
         {
             // 可以加东西
             P(sem);
-            if (cake.Num < 1)
-            {
-                V(sem);
-                return;
-            }
-            
             Consumer.ConsumeACake(cake); // 这句话不允许改，但可以在前后加代码
 
             // 可以加东西
-            V(sem);
         }
         
         // 可以加东西
