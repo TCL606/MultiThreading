@@ -50,7 +50,7 @@ namespace Homework1
 
             // 可以加东西
         }
-        public Semaphore sema = new Semaphore(0, 1);
+        public Semaphore sema = new Semaphore(0, 2);
         // 可以加东西
 
 // ==================================================================================================================  
