@@ -36,24 +36,41 @@ namespace Homework1
         public void Produce()
         {
             // 可以加东西
-            
-            Producer.ProduceACake(cake); // 这句话不允许改，但可以在前后加代码
-            
+            P(sem);
+            try
+            {
+                Producer.ProduceACake(cake); // 这句话不允许改，但可以在前后加代码
+                pro = true;
+            }
             // 可以加东西
+            finally
+            {
+                V(sem);
+            }
         }
 
         public void Consume()
         {
             // 可以加东西
-            
-            Consumer.ConsumeACake(cake); // 这句话不允许改，但可以在前后加代码
-
+            if (pro)
+            {
+                P(sem);
+                try
+                {
+                    Consumer.ConsumeACake(cake); // 这句话不允许改，但可以在前后加代码
+                }
+                finally
+                {
+                    V(sem);
+                }
+            }
             // 可以加东西
         }
-        
         // 可以加东西
+        Semaphore sem = new Semaphore(1, 1);
+        public bool pro = false;
 
-// ==================================================================================================================  
+        // ==================================================================================================================  
     }
 
     public class Cake
