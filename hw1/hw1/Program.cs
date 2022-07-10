@@ -33,21 +33,23 @@ namespace Homework1
         
         // 提示：使用定义好的 P函数 与 V函数
 
+        Semaphore sem=new Semaphore(1,1);
         public void Produce()
         {
             // 可以加东西
-            
+            P(sem);
             Producer.ProduceACake(cake); // 这句话不允许改，但可以在前后加代码
-            
+            V(sem);
             // 可以加东西
         }
 
         public void Consume()
         {
             // 可以加东西
-            
+            P(sem);
+            if(cake.Error)
             Consumer.ConsumeACake(cake); // 这句话不允许改，但可以在前后加代码
-
+            V(sem);
             // 可以加东西
         }
         
