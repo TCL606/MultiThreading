@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading;
 
 namespace Homework1
@@ -33,22 +33,24 @@ namespace Homework1
         
         // 提示：使用定义好的 P函数 与 V函数
 
+        Semaphore sema = new Semaphore(0, 1);
+        
         public void Produce()
         {
             // 可以加东西
             
             Producer.ProduceACake(cake); // 这句话不允许改，但可以在前后加代码
-            
-            // 可以加东西
+
+            V(sema);
         }
 
         public void Consume()
         {
-            // 可以加东西
-            
+            P(sema);
+
             Consumer.ConsumeACake(cake); // 这句话不允许改，但可以在前后加代码
 
-            // 可以加东西
+            V(sema);
         }
         
         // 可以加东西
